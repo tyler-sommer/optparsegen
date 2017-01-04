@@ -11,8 +11,6 @@ os:
   - osx
 
 matrix:
-  exclude:
-    - rvm: 2.2.3p173
-      os:  linux
   allow_failures:
     - rvm: ruby-head
+  fast_finish: true
