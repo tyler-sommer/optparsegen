@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+require 'optparse'
+require 'optparsegen'
+
+options = Struct.new(:format).new(:scopt)
+
+OptionParser.new do |opts|
+  opts.banner = %Q(Usage: #{File.basename($0)} [options] <file>
+
+optparsegen converts program usage text into equivalent ruby 'optparse'
+code. It reads the text from the filename passed as the only argument
+on the command line or from standard input.
+
+Options:
+)
+
+  opts.on('-f', '--format', '=[FORMAT]', [:scopt], 'Input usage text format. Default: scopt') do |v|
+    options.format = v
+  end
+
+  opts.on_tail('-h', '--help', 'Show this message.') do
+    puts opts
+    exit
+  end
+end.parse!
+
+OptParseGen.generate(ARGF.read, options.format)

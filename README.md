@@ -12,13 +12,13 @@ Currently, optparsegen only supports [scopt](https://github.com/scopt/scopt) for
 ## Usage
 
 ```
-Usage: optparsegen.rb [options] <file>
+Usage: optparsegen [options] <file>
 
 optparsegen converts program usage text into equivalent ruby 'optparse'
-code. It reads a file passed as the only argument on the command line
-or from standard input.
+code. It reads the text from the filename passed as the only argument
+on the command line or from standard input.
 
 Options:
-        --help                       h
-                                     Show this message.
+    -f, --format=[FORMAT]            Input usage text format. Default: scopt
+    -h, --help                       Show this message.
 ```
