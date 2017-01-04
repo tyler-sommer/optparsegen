@@ -11,6 +11,9 @@ optparsegen converts program usage text into equivalent ruby 'optparse'
 code. It reads the text from the filename passed as the only argument
 on the command line or from standard input.
 
+Example:
+  java -jar some-scopt-using.jar --help | optparsegen > optparse.rb
+
 Options:
 )
 
@@ -24,4 +27,4 @@ Options:
   end
 end.parse!
 
-OptParseGen.generate(ARGF.read, options.format)
+puts OptParseGen.generate(ARGF.read, options.format)
